@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# Astonished Users Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple user management application built with React and Redux Toolkit. It allows users to add, edit, and delete users with their reactions. The application demonstrates the use of modern React hooks, Redux for state management, and CSS modules for styling.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: A JavaScript library for building user interfaces.
+- **Redux Toolkit**: The official, recommended way to write Redux logic.
+- **TypeScript**: A strongly typed programming language that builds on JavaScript.
+- **CSS Modules**: A CSS file in which all class and animation names are scoped locally by default.
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The project is structured as follows:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+/project
+├── src
+│   ├── app
+│   │   ├── api.ts
+│   │   ├── hooks.ts
+│   │   └── store.ts
+│   ├── features
+│   │   └── users
+│   │       ├── UsersList.module.css
+│   │       ├── UsersList.tsx
+│   │       └── usersSlice.ts
+│   ├── hooks
+│   │   └── useUsers.ts
+│   ├── App.tsx
+│   └── index.tsx
+└── README.md
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Key Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **User Management**: Add, edit, and delete users.
+- **State Management**: Utilizes Redux Toolkit for efficient state management.
+- **Custom Hooks**: Implements custom hooks for fetching and managing user data.
+- **Styling**: Uses CSS modules for scoped and maintainable styles.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Demo
+
+![Demo GIF](path/to/your/demo.gif)
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. **Clone the repository**:
+
+   ```sh
+   git clone https://github.com/yourusername/astonished-users-management.git
+   cd astonished-users-management
+   ```
+
+2. **Install dependencies**:
+
+   ```sh
+   npm install
+   ```
+
+3. **Run the application**:
+
+   ```sh
+   pnpm start
+   ```
+
+4. **Open your browser**:
+   Navigate to `http://localhost:5173` to see the application in action.
+
+## Contact
+
+- **Email**: jsebastiangb.12@gmail.com
+- **LinkedIn**: [https://www.linkedin.com/in/juansebastiangonzalezb/](https://www.linkedin.com/in/juansebastiangonzalezb/)
+- **GitHub**: [https://github.com/JuanSebastianGB](https://github.com/JuanSebastianGB)

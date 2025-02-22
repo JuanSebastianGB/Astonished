@@ -4,7 +4,7 @@ import UsersList from './features/users/UsersList';
 function App() {
   return (
     <main>
-      <h1>Entry point</h1>
+      <h1>Users List</h1>
       <UsersList />
     </main>
   );
