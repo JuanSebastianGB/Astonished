@@ -15,12 +15,7 @@ export interface UsersState {
 // Initial State
 
 const initialState: UsersState = {
-  users: {
-    1: { id: '1', name: 'Emma', reaction: 'ShockaLad!' },
-    2: { id: '2', name: 'Liam', reaction: 'Mind = Blown!' },
-    3: { id: '3', name: 'Olivia', reaction: 'Whaaat?!' },
-    4: { id: '4', name: 'Noah', reaction: 'Unbelievable!' },
-  },
+  users: {},
 };
 
 // Slice
@@ -35,7 +30,23 @@ export const usersSlice = createSlice({
         state.users[user.id] = user;
       });
     },
+    addNewUser: (
+      state,
+      action: PayloadAction<Pick<User, 'name' | 'reaction'>>
+    ) => {
+      const id = '' + Date.now();
+      state.users[id] = { id, ...action.payload };
+    },
+    updateUser: (state, action: PayloadAction<User>) => {
+      state.users[action.payload.id] = action.payload;
+    },
+    removeUser: (state, action: PayloadAction<User['id']>) => {
+      delete state.users[action.payload];
+    },
   },
 });
+
+export const { receivedUsers, addNewUser, removeUser, updateUser } =
+  usersSlice.actions;
 
 export default usersSlice.reducer;
