@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 // interface
 
-type User = {
+export type User = {
   id: string;
   name: string;
+  reaction: string;
 };
 
 export interface UsersState {
@@ -15,8 +16,10 @@ export interface UsersState {
 
 const initialState: UsersState = {
   users: {
-    '1': { id: '1', name: 'John Doe' },
-    '2': { id: '2', name: 'Jane Doe' },
+    1: { id: '1', name: 'Emma', reaction: 'ShockaLad!' },
+    2: { id: '2', name: 'Liam', reaction: 'Mind = Blown!' },
+    3: { id: '3', name: 'Olivia', reaction: 'Whaaat?!' },
+    4: { id: '4', name: 'Noah', reaction: 'Unbelievable!' },
   },
 };
 
@@ -25,7 +28,14 @@ const initialState: UsersState = {
 export const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    receivedUsers: (state, action: PayloadAction<User[]>) => {
+      const users = action.payload;
+      users.forEach((user) => {
+        state.users[user.id] = user;
+      });
+    },
+  },
 });
 
 export default usersSlice.reducer;

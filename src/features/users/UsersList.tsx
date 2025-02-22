@@ -1,27 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './UsersList.module.css';
-
-const initialUsers = [
-  { id: 1, name: 'Emma', reaction: 'ShockaLad!' },
-  { id: 2, name: 'Liam', reaction: 'Mind = Blown!' },
-  { id: 3, name: 'Olivia', reaction: 'Whaaat?!' },
-  { id: 4, name: 'Noah', reaction: 'Unbelievable!' },
-];
+import { getUsers } from '../../app/api';
+import { User } from './usersSlice';
 
 const UsersList = () => {
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState<User[]>([]);
   const [newUser, setNewUser] = useState({ name: '', reaction: '' });
-  const [editingId, setEditingId] = useState(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [editValues, setEditValues] = useState({ name: '', reaction: '' });
 
   // CREATE
-  const handleAddUser = (e) => {
+  const handleAddUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newUser.name && newUser.reaction) {
       setUsers([
         ...users,
         {
-          id: Date.now(),
+          id: '' + Date.now(),
           name: newUser.name,
           reaction: newUser.reaction,
         },
@@ -31,12 +26,12 @@ const UsersList = () => {
   };
 
   // UPDATE
-  const handleEdit = (user) => {
+  const handleEdit = (user: User) => {
     setEditingId(user.id);
     setEditValues({ name: user.name, reaction: user.reaction });
   };
 
-  const handleUpdate = (e, id) => {
+  const handleUpdate = (e: React.FormEvent<HTMLFormElement>, id: string) => {
     e.preventDefault();
     setUsers(
       users.map((user) => (user.id === id ? { ...user, ...editValues } : user))
@@ -46,9 +41,16 @@ const UsersList = () => {
   };
 
   // DELETE
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     setUsers(users.filter((user) => user.id !== id));
   };
+
+  useEffect(() => {
+    getUsers()
+      .then((response) => setUsers(response))
+      .catch(console.error);
+  }, []);
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Astonished Users 😲</h1>
