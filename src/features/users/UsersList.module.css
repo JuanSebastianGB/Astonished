@@ -1,0 +1,137 @@
+/* src/components/AstonishedUsers.module.css */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff3e0, #ffebee);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: #d81b60;
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(216, 27, 96, 0.2);
+  animation: bounce 1.5s infinite;
+}
+
+.addForm,
+.editForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.input {
+  padding: 8px;
+  border: 2px solid #f06292;
+  border-radius: 5px;
+  font-size: 1em;
+  flex: 1;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #e91e63;
+}
+
+.button {
+  padding: 8px 15px;
+  background: #f06292;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #e91e63;
+}
+
+.deleteButton {
+  background: #c2185b;
+}
+
+.deleteButton:hover {
+  background: #ad1457;
+}
+
+.cancelButton {
+  background: #757575;
+}
+
+.cancelButton:hover {
+  background: #616161;
+}
+
+.userList {
+  list-style: none;
+  padding: 0;
+}
+
+.userItem {
+  padding: 15px;
+  margin: 10px 0;
+  background: white;
+  border-radius: 10px;
+  border: 2px solid #f06292;
+  transition: transform 0.2s ease;
+}
+
+.userItem:hover {
+  transform: scale(1.05);
+  border-color: #e91e63;
+}
+
+.userName {
+  font-weight: bold;
+  color: #ad1457;
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.reaction {
+  color: #f06292;
+  font-style: italic;
+  font-size: 1.1em;
+  animation: pulse 1.5s infinite;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
