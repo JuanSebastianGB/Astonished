@@ -51,13 +51,13 @@ To get started with the project, follow these steps:
 
    ```sh
    git clone https://github.com/yourusername/astonished-users-management.git
-   cd astonished-users-management
+   cd Astonished
    ```
 
 2. **Install dependencies**:
 
    ```sh
-   npm install
+   pnpm install
    ```
 
 3. **Run the application**:
@@ -68,9 +68,3 @@ To get started with the project, follow these steps:
 
 4. **Open your browser**:
    Navigate to `http://localhost:5173` to see the application in action.
-
-## Contact
-
-- **Email**: jsebastiangb.12@gmail.com
-- **LinkedIn**: [https://www.linkedin.com/in/juansebastiangonzalezb/](https://www.linkedin.com/in/juansebastiangonzalezb/)
-- **GitHub**: [https://github.com/JuanSebastianGB](https://github.com/JuanSebastianGB)
