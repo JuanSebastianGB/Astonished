@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useAppSelector } from '../../app/hooks';
 import styles from './UsersList.module.css';
 
 const initialUsers = [
