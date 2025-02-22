@@ -40,8 +40,7 @@ The project is structured as follows:
 - **Styling**: Uses CSS modules for scoped and maintainable styles.
 
 ## Demo
-
-![Demo GIF](path/to/your/demo.gif)
+![Demo](https://github.com/user-attachments/assets/1f1340c9-5e95-4f17-bbe4-2014cbaa43a8)
 
 ## Getting Started
 
